@@ -3,4 +3,6 @@
     android:id="@+id/list_frag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    class="com.hfad.workout.WorkoutListFragment" />
+    class="com.hfad.workout.WorkoutDetailFragment" />
+
+

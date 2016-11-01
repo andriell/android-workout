@@ -13,6 +13,7 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class WorkoutDetailFragment extends Fragment {
+    private final static String WORKOUT_ID = "WORKOUT_ID";
     private long workoutId;
 
     public WorkoutDetailFragment() {
@@ -24,6 +25,9 @@ public class WorkoutDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        if (savedInstanceState != null) {
+            workoutId = savedInstanceState.getLong(WORKOUT_ID);
+        }
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
 
@@ -42,5 +46,12 @@ public class WorkoutDetailFragment extends Fragment {
 
     public void setWorkoutId(long id) {
         workoutId = id;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putLong(WORKOUT_ID, workoutId);
+        super.onSaveInstanceState(outState);
+
     }
 }
