@@ -2,6 +2,7 @@ package com.hfad.workout;
 
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,15 @@ public class WorkoutDetailFragment extends Fragment {
         if (savedInstanceState != null) {
             workoutId = savedInstanceState.getLong(WORKOUT_ID);
         }
+        // Получаем дочернюю транзакцию что бы создать вложенную транзакцию,
+        // что бы отменялись сразу оба действия. Переход в этот фрагмент и добавление дочернего фрагмента.
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+        StopwatchFragment stopwatchFragment = new StopwatchFragment(); // Создаем фрагмент
+        ft.replace(R.id.stopwatch_container, stopwatchFragment); // Создаем действие замены т.е. добавляем фрагмент
+        ft.addToBackStack(null); // Идентификатор транзакции не нужен. Мы не будем к ней обращаться
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // Задем анимацию
+        ft.commit(); // Применяем транзакцию
+
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
 

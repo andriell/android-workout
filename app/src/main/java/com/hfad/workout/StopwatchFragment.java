@@ -1,10 +1,9 @@
 package com.hfad.workout;
 
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StopwatchFragment extends Fragment {
+public class StopwatchFragment extends Fragment implements View.OnClickListener {
     private boolean running = false;
     private boolean wasRunning = false;
     private int seconds = 0;
@@ -98,4 +97,18 @@ public class StopwatchFragment extends Fragment {
         running = false;
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.start_button:
+                onClickStart(view);
+                break;
+            case R.id.stop_button:
+                onClickStop(view);
+                break;
+            case R.id.reset_button:
+                onClickReset(view);
+                break;
+        }
+    }
 }

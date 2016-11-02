@@ -20,7 +20,6 @@
         android:layout_marginTop="20dp"
         android:id="@+id/start_button"
         android:layout_below="@+id/time_view"
-        android:onClick="onClickStart"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -31,7 +30,6 @@
         android:layout_below="@+id/start_button"
         android:layout_alignLeft="@+id/start_button"
         android:layout_alignStart="@+id/start_button"
-        android:onClick="onClickStop"
         android:id="@+id/stop_button" />
 
     <Button
@@ -39,7 +37,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:onClick="onClickReset"
         android:id="@+id/reset_button"
         android:layout_below="@+id/stop_button"
         android:layout_alignLeft="@+id/stop_button"
