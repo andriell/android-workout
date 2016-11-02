@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -27,6 +28,12 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_stopwatch, container, false);
         runTimer(view);
+        Button button = (Button) view.findViewById(R.id.start_button);
+        button.setOnClickListener(this);
+        button = (Button) view.findViewById(R.id.stop_button);
+        button.setOnClickListener(this);
+        button = (Button) view.findViewById(R.id.reset_button);
+        button.setOnClickListener(this);
         return view;
     }
 
